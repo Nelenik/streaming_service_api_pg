@@ -2,7 +2,7 @@
   "outputDirectory": "dist",
   "routes": [
     {
-      "src": "api/(.*)",
+      "src": "/api/(.*)",
       "dest": "src/main.ts"
     }
   ]
