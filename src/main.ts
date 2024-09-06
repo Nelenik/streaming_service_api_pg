@@ -3,20 +3,19 @@ import { AppModule } from './app.module';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import * as path from 'path';
 import * as express from 'express';
-// import * as cors from 'cors';
+import * as cors from 'cors';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
   app.enableCors({
-    origin: '*',
-    methods: ['GET', 'POST', 'DELETE'],
-    allowedHeaders: ['Content-Type', 'Authorization'],
-    credentials: true,
+    origin: ['http://localhost:8080'],
+    methods: ['POST', 'GET', 'DELETE'],
+    allowedHeaders: ['Content-Type', 'Accept', 'Authorization'],
   });
 
   app.setGlobalPrefix('api');
-  // app.use(cors());
+  app.use(cors());
   app.use('/songs', express.static(path.join(process.cwd(), 'static/songs')));
 
   const options = new DocumentBuilder()
