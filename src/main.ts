@@ -9,7 +9,7 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
   app.enableCors({
-    origin: ['http://localhost:8080', 'https://musicnear.netlify.app'],
+    origin: '*',
     methods: ['POST', 'GET', 'DELETE'],
     allowedHeaders: ['Content-Type', 'Accept', 'Authorization'],
   });
