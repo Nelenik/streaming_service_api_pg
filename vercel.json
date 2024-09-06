@@ -1,0 +1,9 @@
+{
+  "outputDirectory": "dist",
+  "routes": [
+    {
+      "src": "api/(.*)",
+      "dest": "src/main.ts"
+    }
+  ]
+}
